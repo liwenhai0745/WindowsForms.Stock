@@ -17,6 +17,8 @@
           <Property Name="count" Type="int" />
           <Property Name="type" Type="varchar" MaxLength="50" />
           <Property Name="buyDate" Type="date" />
+          <Property Name="expectedSource" Type="varchar" MaxLength="50" />
+          <Property Name="area" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -51,6 +53,8 @@
           <Property Name="count" Type="Int32" />
           <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="buyDate" Type="DateTime" Precision="0" />
+          <Property Name="expectedSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -70,6 +74,8 @@
           <EntitySetMapping Name="stock">
             <EntityTypeMapping TypeName="StockInfoModel.stock">
               <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="expectedSource" ColumnName="expectedSource" />
                 <ScalarProperty Name="buyDate" ColumnName="buyDate" />
                 <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="count" ColumnName="count" />

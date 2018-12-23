@@ -47,6 +47,14 @@ namespace WindowsForms.Stock.GPService
             }
         }
 
+        public static async Task<StockInfo> GetStockInfoAsync(string code)
+        {
+            string url = "https://stock.xueqiu.com/v5/stock/quote.json?symbol=" + code;
+            string result = await SendRequest(url);
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StockInfo>(result);
+        }
+
 
         public static StockInfo GetStockInfo(string code)
         {

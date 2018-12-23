@@ -22,5 +22,7 @@ namespace WindowsForms.Stock
         public Nullable<int> count { get; set; }
         public string type { get; set; }
         public Nullable<System.DateTime> buyDate { get; set; }
+        public string expectedSource { get; set; }
+        public string area { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace WindowsForms.Stock
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StockManager());
+            Application.Run(new Form1());
         }
     }
 }
