@@ -16,5 +16,16 @@ namespace WindowsForms.Stock
         {
             InitializeComponent();
         }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click_1(object sender, EventArgs e)
+        {
+            StockManager MyForm = new StockManager();
+            MyForm.ShowDialog();
+        }
     }
 }
