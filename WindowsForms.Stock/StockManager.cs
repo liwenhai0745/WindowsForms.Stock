@@ -65,7 +65,7 @@ namespace WindowsForms.Stock
                                 temp.type = "持有";
                             }
 
-                            grid.Rows[e.RowIndex].Cells["curPrice"].Value = RequestHelper.GetStockInfo(result.area + temp.code).data.quote.current; ;
+                            grid.Rows[e.RowIndex].Cells["curPrice"].Value = RequestHelper.GetStockInfo(result.area.ToUpper() + temp.code).data.quote.current; ;
                         }
                     }
                     //RequestHelper.SendRequest()

@@ -45,7 +45,7 @@ namespace WindowsForms.Stock.GPService
                     //1.如果达到预期价格就提示卖出
                     //2.如果赚钱超过50就提示卖出
 
-                    if (newPrice >= this.salePrice|| earnMoney >= 50) {
+                    if (newPrice >= this.salePrice|| earnMoney >= 88) {
                         SendEmail(MailContent);
                     }
 

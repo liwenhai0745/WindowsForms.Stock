@@ -62,24 +62,31 @@ namespace WindowsForms.Stock
 
                 if (isBuildTask)
                 {
-                    cts = new CancellationTokenSource();
-                    StockMainTask = Task.Run(async () =>
-                    {
-                        await TaskTimerAsync();
-                    }, cts.Token);
+                    LoadStockInfo();
                 }
                 //cts = new CancellationTokenSource();
                 Console.WriteLine(DateTime.Now.ToString() + "SystemTimer线程编号:" + Thread.CurrentThread.ManagedThreadId);
                 //synContext.Post(x => toolStripStatusLabel1.Text = "上次操作时间:" + DateTime.Now.ToString(), null);
 
 
+
+                int minute = DateTime.Now.Minute <= 30 ? (30 - DateTime.Now.Minute) : (60 - DateTime.Now.Minute);
+                if (minute == 0) minute = 1;
                 //StockMainTask();
-                await Task.Delay(1000 * 1800);
+                await Task.Delay(1000 * minute);
 
 
             } while (true);
         }
 
+        private void LoadStockInfo()
+        {
+            cts = new CancellationTokenSource();
+            StockMainTask = Task.Run(async () =>
+            {
+                await TaskTimerAsync();
+            }, cts.Token);
+        }
 
         private int Second = 15;
         private async Task TaskTimerAsync()
@@ -231,6 +238,12 @@ namespace WindowsForms.Stock
             this.Show();
             this.Activate();
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BindGridView();
+            LoadStockInfo();
         }
     }
 }
