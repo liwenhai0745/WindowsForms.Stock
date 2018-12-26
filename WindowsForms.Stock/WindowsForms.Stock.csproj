@@ -112,6 +112,7 @@
     <Compile Include="GPService\MailSend.cs" />
     <Compile Include="GPService\MyGP.cs" />
     <Compile Include="GPService\RequestHelper.cs" />
+    <Compile Include="GPService\StaticInfo.cs" />
     <Compile Include="GPService\stockExtend.cs" />
     <Compile Include="GPService\StockInfo.cs" />
     <Compile Include="GPService\StockInit.cs" />

@@ -35,7 +35,7 @@ namespace WindowsForms.Stock.GPService
 
         private void StockExtend_PriceChanged(decimal oldPrice, decimal newPrice)
         {
-            if (oldPrice > 0&& newPrice>0) {
+            if (oldPrice > 0&& newPrice>0&& StaticInfo.StockStatus.Contains("交易")) {
                 if (this.type == "持有") {
 
                     decimal earnMoney = (newPrice - this.buyPrice.Value) *this.count.Value;

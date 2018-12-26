@@ -138,6 +138,7 @@ namespace WindowsForms.Stock
 
                 if (result != null)
                 {
+                    StaticInfo.StockStatus = result.data.market.status;
                     if (result.data.market.status == "休市" || result.data.market.status == "已收盘" || result.data.market.status == "休市")
                     {
                         synContext.Post(x => toolStripStatusLabel1.Text = "当前状态:" + result.data.market.status, null);
