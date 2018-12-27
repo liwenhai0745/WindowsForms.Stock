@@ -111,6 +111,8 @@ namespace WindowsForms.Stock
                     Obj.salePrice = temp.salePrice;
                     Obj.buyPrice = temp.buyPrice;
                     Obj.buyDate = temp.buyDate;
+                    Obj.planEarnMoney = temp.planEarnMoney;
+                    Obj.lowBuyPrice = temp.lowBuyPrice;
                     stocks.Add(Obj);
 
                 }

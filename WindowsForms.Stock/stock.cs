@@ -24,5 +24,7 @@ namespace WindowsForms.Stock
         public Nullable<System.DateTime> buyDate { get; set; }
         public string expectedSource { get; set; }
         public string area { get; set; }
+        public Nullable<decimal> planEarnMoney { get; set; }
+        public Nullable<decimal> lowBuyPrice { get; set; }
     }
 }

@@ -36,6 +36,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,12 +46,15 @@
             this.buyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.curPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.planEarnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lowBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expectedSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -67,6 +71,8 @@
             this.buyDate,
             this.typeDataGridViewTextBoxColumn,
             this.curPrice,
+            this.planEarnMoney,
+            this.lowBuyPrice,
             this.expectedSource,
             this.changed,
             this.area});
@@ -130,6 +136,10 @@
             // 
             this.stockBindingSource.DataSource = typeof(WindowsForms.Stock.stock);
             // 
+            // stockBindingSource1
+            // 
+            this.stockBindingSource1.DataSource = typeof(WindowsForms.Stock.stock);
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -143,30 +153,35 @@
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
             this.codeDataGridViewTextBoxColumn.HeaderText = "code";
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.Width = 60;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 60;
             // 
             // buyPriceDataGridViewTextBoxColumn
             // 
             this.buyPriceDataGridViewTextBoxColumn.DataPropertyName = "buyPrice";
             this.buyPriceDataGridViewTextBoxColumn.HeaderText = "buyPrice";
             this.buyPriceDataGridViewTextBoxColumn.Name = "buyPriceDataGridViewTextBoxColumn";
+            this.buyPriceDataGridViewTextBoxColumn.Width = 80;
             // 
             // salePriceDataGridViewTextBoxColumn
             // 
             this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "salePrice";
             this.salePriceDataGridViewTextBoxColumn.HeaderText = "salePrice";
             this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
+            this.salePriceDataGridViewTextBoxColumn.Width = 80;
             // 
             // countDataGridViewTextBoxColumn
             // 
             this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
             this.countDataGridViewTextBoxColumn.HeaderText = "count";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.Width = 60;
             // 
             // buyDate
             // 
@@ -190,6 +205,21 @@
             this.curPrice.HeaderText = "curPrice";
             this.curPrice.Name = "curPrice";
             this.curPrice.ReadOnly = true;
+            this.curPrice.Width = 80;
+            // 
+            // planEarnMoney
+            // 
+            this.planEarnMoney.DataPropertyName = "planEarnMoney";
+            this.planEarnMoney.HeaderText = "planEarnMoney";
+            this.planEarnMoney.Name = "planEarnMoney";
+            this.planEarnMoney.Width = 80;
+            // 
+            // lowBuyPrice
+            // 
+            this.lowBuyPrice.DataPropertyName = "lowBuyPrice";
+            this.lowBuyPrice.HeaderText = "lowBuyPrice";
+            this.lowBuyPrice.Name = "lowBuyPrice";
+            this.lowBuyPrice.Width = 80;
             // 
             // expectedSource
             // 
@@ -226,6 +256,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,6 +270,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.BindingSource stockBindingSource;
+        private System.Windows.Forms.BindingSource stockBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -248,6 +280,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn buyDate;
         private System.Windows.Forms.DataGridViewComboBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn curPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn planEarnMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lowBuyPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn expectedSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn changed;
         private System.Windows.Forms.DataGridViewTextBoxColumn area;

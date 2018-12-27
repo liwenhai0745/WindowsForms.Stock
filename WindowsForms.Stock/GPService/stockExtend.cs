@@ -36,7 +36,7 @@ namespace WindowsForms.Stock.GPService
         private void StockExtend_PriceChanged(decimal oldPrice, decimal newPrice)
         {
             if (oldPrice > 0&& newPrice>0&& StaticInfo.StockStatus.Contains("交易")) {
-                if (this.type == "持有") {
+                if (this.type == "持有"&&newPrice>= this.salePrice) {
 
                     decimal earnMoney = (newPrice - this.buyPrice.Value) *this.count.Value;
                     string MailContent = "销售提醒" + $"：[{this.name}]已经达到预期价格{this.salePrice},成本价格{this.buyPrice},预期盈利({newPrice} - {this.buyPrice}={newPrice - this.buyPrice}) * {this.count}={earnMoney}元\n";
@@ -45,7 +45,7 @@ namespace WindowsForms.Stock.GPService
                     //1.如果达到预期价格就提示卖出
                     //2.如果赚钱超过50就提示卖出
 
-                    if (newPrice >= this.salePrice|| earnMoney >= 88) {
+                    if (newPrice >= this.salePrice|| (earnMoney >= this.planEarnMoney&& this.planEarnMoney>0)) {
                         SendEmail(MailContent);
                     }
 

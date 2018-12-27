@@ -19,6 +19,8 @@
           <Property Name="buyDate" Type="date" />
           <Property Name="expectedSource" Type="varchar" MaxLength="50" />
           <Property Name="area" Type="varchar" MaxLength="50" />
+          <Property Name="planEarnMoney" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="lowBuyPrice" Type="decimal" Precision="18" Scale="4" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -55,6 +57,8 @@
           <Property Name="buyDate" Type="DateTime" Precision="0" />
           <Property Name="expectedSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="planEarnMoney" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="lowBuyPrice" Type="Decimal" Precision="18" Scale="4" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -74,6 +78,8 @@
           <EntitySetMapping Name="stock">
             <EntityTypeMapping TypeName="StockInfoModel.stock">
               <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="lowBuyPrice" ColumnName="lowBuyPrice" />
+                <ScalarProperty Name="planEarnMoney" ColumnName="planEarnMoney" />
                 <ScalarProperty Name="area" ColumnName="area" />
                 <ScalarProperty Name="expectedSource" ColumnName="expectedSource" />
                 <ScalarProperty Name="buyDate" ColumnName="buyDate" />

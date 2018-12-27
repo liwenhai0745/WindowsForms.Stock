@@ -35,6 +35,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,20 +51,13 @@
             this.buyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.earnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.planEarnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -111,7 +112,8 @@
             this.countDataGridViewTextBoxColumn,
             this.buyDateDataGridViewTextBoxColumn,
             this.curPrice,
-            this.earnMoney});
+            this.earnMoney,
+            this.planEarnMoney});
             this.dataGridView1.DataSource = this.stockBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
@@ -119,64 +121,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1181, 375);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // buyPriceDataGridViewTextBoxColumn
-            // 
-            this.buyPriceDataGridViewTextBoxColumn.DataPropertyName = "buyPrice";
-            this.buyPriceDataGridViewTextBoxColumn.HeaderText = "buyPrice";
-            this.buyPriceDataGridViewTextBoxColumn.Name = "buyPriceDataGridViewTextBoxColumn";
-            this.buyPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // salePriceDataGridViewTextBoxColumn
-            // 
-            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "salePrice";
-            this.salePriceDataGridViewTextBoxColumn.HeaderText = "salePrice";
-            this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
-            this.salePriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "count";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            this.countDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // buyDateDataGridViewTextBoxColumn
-            // 
-            this.buyDateDataGridViewTextBoxColumn.DataPropertyName = "buyDate";
-            this.buyDateDataGridViewTextBoxColumn.HeaderText = "buyDate";
-            this.buyDateDataGridViewTextBoxColumn.Name = "buyDateDataGridViewTextBoxColumn";
-            this.buyDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // curPrice
-            // 
-            this.curPrice.HeaderText = "curPrice";
-            this.curPrice.Name = "curPrice";
-            this.curPrice.ReadOnly = true;
-            // 
-            // earnMoney
-            // 
-            this.earnMoney.HeaderText = "earnMoney";
-            this.earnMoney.Name = "earnMoney";
-            this.earnMoney.ReadOnly = true;
-            // 
-            // stockBindingSource
-            // 
-            this.stockBindingSource.DataSource = typeof(WindowsForms.Stock.stock);
             // 
             // tabPage2
             // 
@@ -238,6 +182,71 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // stockBindingSource
+            // 
+            this.stockBindingSource.DataSource = typeof(WindowsForms.Stock.stock);
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // buyPriceDataGridViewTextBoxColumn
+            // 
+            this.buyPriceDataGridViewTextBoxColumn.DataPropertyName = "buyPrice";
+            this.buyPriceDataGridViewTextBoxColumn.HeaderText = "buyPrice";
+            this.buyPriceDataGridViewTextBoxColumn.Name = "buyPriceDataGridViewTextBoxColumn";
+            this.buyPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // salePriceDataGridViewTextBoxColumn
+            // 
+            this.salePriceDataGridViewTextBoxColumn.DataPropertyName = "salePrice";
+            this.salePriceDataGridViewTextBoxColumn.HeaderText = "salePrice";
+            this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
+            this.salePriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "count";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // buyDateDataGridViewTextBoxColumn
+            // 
+            this.buyDateDataGridViewTextBoxColumn.DataPropertyName = "buyDate";
+            this.buyDateDataGridViewTextBoxColumn.HeaderText = "buyDate";
+            this.buyDateDataGridViewTextBoxColumn.Name = "buyDateDataGridViewTextBoxColumn";
+            this.buyDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // curPrice
+            // 
+            this.curPrice.HeaderText = "curPrice";
+            this.curPrice.Name = "curPrice";
+            this.curPrice.ReadOnly = true;
+            // 
+            // earnMoney
+            // 
+            this.earnMoney.HeaderText = "earnMoney";
+            this.earnMoney.Name = "earnMoney";
+            this.earnMoney.ReadOnly = true;
+            // 
+            // planEarnMoney
+            // 
+            this.planEarnMoney.DataPropertyName = "planEarnMoney";
+            this.planEarnMoney.HeaderText = "planEarnMoney";
+            this.planEarnMoney.Name = "planEarnMoney";
+            this.planEarnMoney.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -259,9 +268,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,6 +284,12 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn buyPriceDataGridViewTextBoxColumn;
@@ -283,12 +298,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn buyDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn curPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn earnMoney;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn planEarnMoney;
     }
 }
 

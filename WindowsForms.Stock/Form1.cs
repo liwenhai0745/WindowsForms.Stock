@@ -178,7 +178,8 @@ namespace WindowsForms.Stock
                                curPrice = 0,
                                name = item.name,
                                salePrice = item.salePrice,
-                               type = item.type
+                               type = item.type,
+                               planEarnMoney = item.planEarnMoney
                            }
                           ).ToList();
                 stockBindingSource.DataSource = Data;
