@@ -103,10 +103,32 @@ namespace WindowsForms.Stock.GPService
         }
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
+
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseCookies = true;
+            var uri = new Uri("https://xueqiu.com/S/SZ002872");
+
+            //handler.CookieContainer.SetCookies(uri, "aas=test");
+            HttpClient client = new HttpClient(handler);
+
+
+            var result = client.GetStringAsync(uri);
+
+            Console.WriteLine(result.Result);
+            var getCookies = handler.CookieContainer.GetCookies(uri);
+            Console.WriteLine("获取到的cookie数量：" + getCookies.Count);
+            Console.WriteLine("获取到的cookie：");
+            string cookieString = "";
+            for (int i = 0; i < getCookies.Count; i++)
+            {
+                //Console.WriteLine(getCookies[i].Name + ":" + getCookies[i].Value);
+                cookieString += getCookies[i].Name + "=" + getCookies[i].Value+";";
+            }
+
             //Referer:https://xueqiu.com/S/SZ002872
-            //request.Headers.Add("Referer", "https://xueqiu.com/S/SZ002872");
-            //request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.6788.400 QQBrowser/10.3.2767.400");
-            request.Headers.Add("Cookie", "s=eg11m1mcsl; device_id=25aff45b70a70af2fea6bab4b0ddc414; _ga=GA1.2.1877971008.1544956887; _gid=GA1.2.92425315.1544956892; remember=1; remember.sig=K4F3faYzmVuqC0iXIERCQf55g2Y; xq_a_token=4bbe383cc438818efa1258affcaff3f7e4ac56c4; xq_a_token.sig=q8xUSZK_r6w70jsgMneHdvxZk3U; xqat=4bbe383cc438818efa1258affcaff3f7e4ac56c4; xqat.sig=VPQlgzfTcCSydeNuF61fQ78VXWk; xq_r_token=69f5092419a85cec69572fa79b55dacce1f81850; xq_r_token.sig=eabJT56QwkZoCALBa72-5Myt8FM; xq_is_login=1; xq_is_login.sig=J3LxgPVPUzbBg3Kee_PquUfih7Q; u=2355762923; u.sig=3clYngHBpnDwrH3reAI27O-xIvw; bid=e3a7a9105388503e35abd5a8945efecc_jpqsf5kr");
+            request.Headers.Add("Referer", "https://xueqiu.com/S/SZ002872");
+            request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.6788.400 QQBrowser/10.3.2767.400");
+            request.Headers.Add("Cookie", "device_id=c9feb9cb8d7625c968a5d72640e6f8df; _ga=GA1.2.1877971008.1544956887; s=eq1ziwj5xb; _gid=GA1.2.1696714880.1547607491;"+cookieString+" _gat_gtag_UA_16079156_4=1");
             return base.SendAsync(request, cancellationToken);
         }
     }
