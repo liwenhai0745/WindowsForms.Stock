@@ -56,6 +56,29 @@ namespace WindowsForms.Stock.GPService
         }
 
 
+
+        // 时间转时间戳
+        public static string DateTimeToStamp(DateTime now)
+        {
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1)); // 当地时区
+            long timeStamp = (long)(now - startTime).TotalMilliseconds; // 相差毫秒数
+            return timeStamp.ToString();
+        }
+
+        public static async Task<Dictionary<string, float>> GetStockMAInfoAsync(string code)
+        {
+            string strTime = DateTimeToStamp(DateTime.Now.Date.AddHours(23));
+            Dictionary<string, float> result = new Dictionary<string, float>();
+            string url = $"https://stock.xueqiu.com/v5/stock/chart/kline.json?symbol={code}&begin={strTime}&period=day&type=before&count=-10";
+            string JsonResult =await SendRequest(url);
+
+            MaRootobject rootobject = Newtonsoft.Json.JsonConvert.DeserializeObject<MaRootobject>(JsonResult);
+            float MA4 = (rootobject.data.item[9][5] + rootobject.data.item[8][5] + rootobject.data.item[7][5] + rootobject.data.item[6][5]) / 4;
+            result.Add("MA4", MA4);
+            return result;
+        }
+
+
         public static StockInfo GetStockInfo(string code)
         {
             string url = "https://stock.xueqiu.com/v5/stock/quote.json?symbol=" + code;

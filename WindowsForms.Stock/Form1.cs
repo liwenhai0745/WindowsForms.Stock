@@ -26,7 +26,7 @@ namespace WindowsForms.Stock
         public Form1()
         {
             InitializeComponent();
-            BindGridView();
+            BindGridViewAsync();
             synContext = SynchronizationContext.Current;
 
             Task.Run(() =>
@@ -116,7 +116,6 @@ namespace WindowsForms.Stock
                           using (StockInfoEntities db = new StockInfoEntities())
                           {
                               var stockinfo = db.stockInfos.SingleOrDefault(t => t.code == item.code);
-
                               return await RequestHelper.GetStockInfoAsync(stockinfo.area.ToUpper() + item.code);
                               //return new StockInfo();
                           }
@@ -146,16 +145,33 @@ namespace WindowsForms.Stock
                     }
                     decimal? earnMoney = (result.data.quote.current - temp.buyPrice) * temp.count;
 
+                    var TempStock = MyStock.Find(t => t.code == temp.code);
                     MyStock.Find(t => t.code == temp.code).curPrice = result.data.quote.current;
                     //更新UI操作
                     synContext.Post(x =>
                     {
                         item.Cells["curPrice"].Value = result.data.quote.current;
                         item.Cells["earnMoney"].Value = earnMoney;
+
+                        item.Cells["TodayEarn"].Value = earnMoney- temp.PrevEarnMoney;
+
                         if (earnMoney > 0)
                         {
                             item.Cells["earnMoney"].Style.BackColor = Color.Red;
                         }
+
+                        if (TempStock.DictMaInfos != null) {
+                            if (result.data.quote.current <= Convert.ToDecimal(TempStock.DictMaInfos["MA4"]))
+                            {
+                                item.Cells["Tip"].Value = "快点卖"+"[MA4:"+ TempStock.DictMaInfos["MA4"]+"]";
+                            }
+                            else
+                            {
+                                item.Cells["Tip"].Value = "继续拿" + "[MA4:" + TempStock.DictMaInfos["MA4"] + "]";
+
+                            }
+                        }
+                       
                     }, null);
                 }
             }
@@ -163,7 +179,7 @@ namespace WindowsForms.Stock
 
         }
 
-        private void BindGridView()
+        private async Task BindGridViewAsync()
         {
             using (StockInfoEntities stockDb = new StockInfoEntities())
             {
@@ -171,6 +187,7 @@ namespace WindowsForms.Stock
                 MyStock = (from item in Data
                            select new stockExtend()
                            {
+                               id=item.id,
                                code = item.code,
                                buyPrice = item.buyPrice,
                                area = item.area,
@@ -179,12 +196,26 @@ namespace WindowsForms.Stock
                                name = item.name,
                                salePrice = item.salePrice,
                                type = item.type,
-                               planEarnMoney = item.planEarnMoney
+                               planEarnMoney = item.planEarnMoney,
+                               PrevEarnMoney=item.PrevEarnMoney
                            }
                           ).ToList();
                 stockBindingSource.DataSource = Data;
 
+
+                foreach (var item in MyStock)
+                {
+                    var dict = await RequestHelper.GetStockMAInfoAsync(item.area.ToUpper() + item.code);
+                    var  tempStockInfo = stockDb.stock.Find(item.id);
+                    tempStockInfo.MAInfos= "MA4:" + dict["MA4"].ToString() + ";";
+                    item.DictMaInfos = dict;
+                    stockDb.SaveChanges();
+
+
+                }
             }
+           
+
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
@@ -244,8 +275,25 @@ namespace WindowsForms.Stock
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BindGridView();
+            BindGridViewAsync();
             LoadStockInfo();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (StockInfoEntities stockDb = new StockInfoEntities())
+            {
+                //同步昨日净值
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    var stock = (stock)item.DataBoundItem;
+                    var stockInfo = stockDb.stock.Find(stock.id);
+                    stockInfo.PrevEarnMoney = Convert.ToDecimal(item.Cells["earnMoney"].Value);
+                }
+                stockDb.SaveChanges();
+            }
+            MessageBox.Show("操作成功!");
+
         }
     }
 }

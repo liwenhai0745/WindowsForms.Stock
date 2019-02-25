@@ -84,4 +84,22 @@ namespace WindowsForms.Stock.GPService
     //    public float pankou_ratio { get; set; }
     //}
 
+
+
+
+    public class MaRootobject
+    {
+        public MaData data { get; set; }
+        public int error_code { get; set; }
+        public string error_description { get; set; }
+    }
+
+    public class MaData
+    {
+        public string symbol { get; set; }
+        public string[] column { get; set; }
+        public float[][] item { get; set; }
+    }
+
+
 }

@@ -42,6 +42,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +52,8 @@
             this.buyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.earnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.planEarnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TodayEarn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -113,7 +115,8 @@
             this.buyDateDataGridViewTextBoxColumn,
             this.curPrice,
             this.earnMoney,
-            this.planEarnMoney});
+            this.TodayEarn,
+            this.Tip});
             this.dataGridView1.DataSource = this.stockBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
@@ -182,6 +185,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(394, 9);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 23);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "同步昨日净值";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // stockBindingSource
             // 
             this.stockBindingSource.DataSource = typeof(WindowsForms.Stock.stock);
@@ -240,18 +253,26 @@
             this.earnMoney.Name = "earnMoney";
             this.earnMoney.ReadOnly = true;
             // 
-            // planEarnMoney
+            // TodayEarn
             // 
-            this.planEarnMoney.DataPropertyName = "planEarnMoney";
-            this.planEarnMoney.HeaderText = "planEarnMoney";
-            this.planEarnMoney.Name = "planEarnMoney";
-            this.planEarnMoney.ReadOnly = true;
+            this.TodayEarn.HeaderText = "TodayEarn";
+            this.TodayEarn.Name = "TodayEarn";
+            this.TodayEarn.ReadOnly = true;
+            // 
+            // Tip
+            // 
+            this.Tip.DataPropertyName = "Tip";
+            this.Tip.HeaderText = "Tip";
+            this.Tip.Name = "Tip";
+            this.Tip.ReadOnly = true;
+            this.Tip.Width = 120;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1225, 605);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
@@ -290,6 +311,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn buyPriceDataGridViewTextBoxColumn;
@@ -298,7 +320,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn buyDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn curPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn earnMoney;
-        private System.Windows.Forms.DataGridViewTextBoxColumn planEarnMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TodayEarn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tip;
     }
 }
 

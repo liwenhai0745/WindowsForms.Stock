@@ -21,6 +21,9 @@
           <Property Name="area" Type="varchar" MaxLength="50" />
           <Property Name="planEarnMoney" Type="decimal" Precision="18" Scale="0" />
           <Property Name="lowBuyPrice" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="MAInfos" Type="varchar" MaxLength="200" />
+          <Property Name="PrevEarnMoney" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Tip" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -59,6 +62,9 @@
           <Property Name="area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="planEarnMoney" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="lowBuyPrice" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="PrevEarnMoney" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Tip" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MAInfos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -78,6 +84,9 @@
           <EntitySetMapping Name="stock">
             <EntityTypeMapping TypeName="StockInfoModel.stock">
               <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="MAInfos" ColumnName="MAInfos" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="PrevEarnMoney" ColumnName="PrevEarnMoney" />
                 <ScalarProperty Name="lowBuyPrice" ColumnName="lowBuyPrice" />
                 <ScalarProperty Name="planEarnMoney" ColumnName="planEarnMoney" />
                 <ScalarProperty Name="area" ColumnName="area" />

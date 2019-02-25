@@ -26,5 +26,8 @@ namespace WindowsForms.Stock
         public string area { get; set; }
         public Nullable<decimal> planEarnMoney { get; set; }
         public Nullable<decimal> lowBuyPrice { get; set; }
+        public Nullable<decimal> PrevEarnMoney { get; set; }
+        public string Tip { get; set; }
+        public string MAInfos { get; set; }
     }
 }

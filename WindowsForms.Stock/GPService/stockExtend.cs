@@ -29,6 +29,8 @@ namespace WindowsForms.Stock.GPService
         }
         public decimal _curPrice;
 
+        public Dictionary<string, float> DictMaInfos { get; set; }
+
         public stockExtend() {
             this.PriceChanged += StockExtend_PriceChanged;
         }
