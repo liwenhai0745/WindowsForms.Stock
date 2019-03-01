@@ -163,7 +163,14 @@ namespace WindowsForms.Stock
                         if (TempStock.DictMaInfos != null) {
                             if (result.data.quote.current <= Convert.ToDecimal(TempStock.DictMaInfos["MA4"]))
                             {
-                                item.Cells["Tip"].Value = "快点卖"+"[MA4:"+ TempStock.DictMaInfos["MA4"]+"]";
+                                string errMsg = "快点卖" + "[MA4:" + TempStock.DictMaInfos["MA4"] + "]";
+                                if (TempStock.isShort.HasValue) {
+                                    if(TempStock.isShort.Value)
+                                    errMsg = errMsg+";短线做成了长线，亏钱了吧！";
+                                    item.Cells["Tip"].Style.BackColor = Color.Red;
+
+                                }
+                                item.Cells["Tip"].Value = errMsg;
                             }
                             else
                             {
@@ -171,7 +178,11 @@ namespace WindowsForms.Stock
 
                             }
                         }
-                       
+
+                        item.Cells["percent"].Value = result.data.quote.percent;
+
+
+
                     }, null);
                 }
             }
@@ -197,7 +208,8 @@ namespace WindowsForms.Stock
                                salePrice = item.salePrice,
                                type = item.type,
                                planEarnMoney = item.planEarnMoney,
-                               PrevEarnMoney=item.PrevEarnMoney
+                               PrevEarnMoney=item.PrevEarnMoney,
+                               isShort=item.isShort
                            }
                           ).ToList();
                 stockBindingSource.DataSource = Data;

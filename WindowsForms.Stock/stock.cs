@@ -29,5 +29,6 @@ namespace WindowsForms.Stock
         public Nullable<decimal> PrevEarnMoney { get; set; }
         public string Tip { get; set; }
         public string MAInfos { get; set; }
+        public Nullable<bool> isShort { get; set; }
     }
 }

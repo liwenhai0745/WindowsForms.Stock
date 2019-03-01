@@ -24,6 +24,7 @@
           <Property Name="MAInfos" Type="varchar" MaxLength="200" />
           <Property Name="PrevEarnMoney" Type="decimal" Precision="18" Scale="4" />
           <Property Name="Tip" Type="nvarchar" MaxLength="500" />
+          <Property Name="isShort" Type="bit" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -65,6 +66,7 @@
           <Property Name="PrevEarnMoney" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="Tip" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="MAInfos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="isShort" Type="Boolean" />
         </EntityType>
         <EntityType Name="stockInfos">
           <Key>
@@ -84,6 +86,7 @@
           <EntitySetMapping Name="stock">
             <EntityTypeMapping TypeName="StockInfoModel.stock">
               <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="isShort" ColumnName="isShort" />
                 <ScalarProperty Name="MAInfos" ColumnName="MAInfos" />
                 <ScalarProperty Name="Tip" ColumnName="Tip" />
                 <ScalarProperty Name="PrevEarnMoney" ColumnName="PrevEarnMoney" />

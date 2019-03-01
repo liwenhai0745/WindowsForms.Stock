@@ -51,6 +51,7 @@
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.percent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.earnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TodayEarn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,6 +115,7 @@
             this.countDataGridViewTextBoxColumn,
             this.buyDateDataGridViewTextBoxColumn,
             this.curPrice,
+            this.percent,
             this.earnMoney,
             this.TodayEarn,
             this.Tip});
@@ -205,6 +207,7 @@
             this.codeDataGridViewTextBoxColumn.HeaderText = "code";
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codeDataGridViewTextBoxColumn.Width = 80;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -212,6 +215,7 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 80;
             // 
             // buyPriceDataGridViewTextBoxColumn
             // 
@@ -219,6 +223,7 @@
             this.buyPriceDataGridViewTextBoxColumn.HeaderText = "buyPrice";
             this.buyPriceDataGridViewTextBoxColumn.Name = "buyPriceDataGridViewTextBoxColumn";
             this.buyPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.buyPriceDataGridViewTextBoxColumn.Width = 80;
             // 
             // salePriceDataGridViewTextBoxColumn
             // 
@@ -226,6 +231,7 @@
             this.salePriceDataGridViewTextBoxColumn.HeaderText = "salePrice";
             this.salePriceDataGridViewTextBoxColumn.Name = "salePriceDataGridViewTextBoxColumn";
             this.salePriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.salePriceDataGridViewTextBoxColumn.Width = 80;
             // 
             // countDataGridViewTextBoxColumn
             // 
@@ -233,6 +239,7 @@
             this.countDataGridViewTextBoxColumn.HeaderText = "count";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.Width = 80;
             // 
             // buyDateDataGridViewTextBoxColumn
             // 
@@ -246,18 +253,28 @@
             this.curPrice.HeaderText = "curPrice";
             this.curPrice.Name = "curPrice";
             this.curPrice.ReadOnly = true;
+            this.curPrice.Width = 80;
+            // 
+            // percent
+            // 
+            this.percent.HeaderText = "percent";
+            this.percent.Name = "percent";
+            this.percent.ReadOnly = true;
+            this.percent.Width = 80;
             // 
             // earnMoney
             // 
             this.earnMoney.HeaderText = "earnMoney";
             this.earnMoney.Name = "earnMoney";
             this.earnMoney.ReadOnly = true;
+            this.earnMoney.Width = 80;
             // 
             // TodayEarn
             // 
             this.TodayEarn.HeaderText = "TodayEarn";
             this.TodayEarn.Name = "TodayEarn";
             this.TodayEarn.ReadOnly = true;
+            this.TodayEarn.Width = 80;
             // 
             // Tip
             // 
@@ -265,7 +282,7 @@
             this.Tip.HeaderText = "Tip";
             this.Tip.Name = "Tip";
             this.Tip.ReadOnly = true;
-            this.Tip.Width = 120;
+            this.Tip.Width = 200;
             // 
             // Form1
             // 
@@ -319,6 +336,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn buyDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn curPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn percent;
         private System.Windows.Forms.DataGridViewTextBoxColumn earnMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn TodayEarn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tip;
